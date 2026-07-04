@@ -4,6 +4,7 @@ const path = require("path");
 const { createLaunchPlan, demoPlan, runtimeStatus } = require("./lib/launchops");
 
 const PORT = Number(process.env.PORT || 4173);
+
 const publicDir = path.join(__dirname, "app");
 const mime = {
   ".html": "text/html; charset=utf-8",
@@ -89,8 +90,8 @@ function startServer(port = PORT) {
   return server.listen(port, () => {
     const address = server.address();
     const actualPort = typeof address === "object" && address ? address.port : port;
-    const status = runtimeStatus();
     console.log(`LaunchOps is running at http://localhost:${actualPort}`);
+    const status = runtimeStatus();
     console.log(`BTL runtime endpoint: ${status.endpoint}`);
     console.log(`Live runtime enabled: ${status.liveRuntimeEnabled}`);
   });
@@ -100,4 +101,4 @@ if (require.main === module) {
   startServer();
 }
 
-module.exports = { server, startServer };
+module.exports = { server, startServer, runtimeStatus, createLaunchPlan };
