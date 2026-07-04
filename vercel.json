@@ -1,9 +1,17 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "public",
-  "functions": {
-    "api/*.js": {
-      "runtime": "nodejs18.x"
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/app/index.html"
+    },
+    {
+      "source": "/styles.css",
+      "destination": "/app/styles.css"
+    },
+    {
+      "source": "/app.js",
+      "destination": "/app/app.js"
     }
-  }
+  ]
 }

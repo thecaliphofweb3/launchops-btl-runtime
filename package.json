@@ -4,9 +4,8 @@
   "description": "LaunchOps: a BTL runtime-powered command center for hackathon teams.",
   "main": "local-server.js",
   "scripts": {
-    "build": "node scripts/build-static.js",
     "start": "node local-server.js",
-    "vercel-build": "npm run build"
+    "vercel-build": "echo LaunchOps static app is ready"
   },
   "keywords": [
     "btl-runtime",
