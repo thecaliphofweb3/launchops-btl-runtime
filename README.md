@@ -41,13 +41,6 @@ Then deploy the GitHub repo to Vercel. The deployed link will work on mobile pho
 
 Do not put your BTL key in the frontend code or in GitHub. Keep it only as a Vercel environment variable.
 
-If Vercel shows `FUNCTION_INVOCATION_FAILED`, open the Vercel project logs and check the API route that crashed. The app uses:
-
-- `/api/status`
-- `/api/launch-plan`
-
-Both routes import shared runtime logic from `lib/launchops.js`, so the serverless functions do not depend on the local `server.js` process.
-
 On Windows, open PowerShell in this folder first:
 
 ```text

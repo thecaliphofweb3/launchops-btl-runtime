@@ -1,4 +1,4 @@
-const { runtimeStatus } = require("../lib/launchops");
+const { runtimeStatus } = require("../server");
 
 module.exports = function handler(req, res) {
   if (req.method !== "GET") {
