@@ -1,4 +1,4 @@
-const { createLaunchPlan } = require("../server");
+const { createLaunchPlan } = require("../lib/launchops");
 
 async function parseBody(req) {
   if (req.body && typeof req.body === "object") return req.body;
