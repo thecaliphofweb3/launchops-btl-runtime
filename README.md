@@ -27,7 +27,7 @@ http://localhost:4173
 
 ## Deploy to Vercel
 
-LaunchOps is Vercel-ready. The frontend is served from `app/`, and the BTL calls run through serverless functions in `api/`.
+LaunchOps is Vercel-ready. The frontend is built from `app/` into `public/`, and the BTL calls run through serverless functions in `api/`.
 
 Set these environment variables in Vercel before deploying:
 
