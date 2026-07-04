@@ -268,7 +268,9 @@ const handler = async (req, res) => {
   }
 
   send(res, 405, "Method not allowed", "text/plain; charset=utf-8");
-});
+};
+
+const server = http.createServer(handler);
 
 function startServer(port = PORT) {
   return server.listen(port, () => {
