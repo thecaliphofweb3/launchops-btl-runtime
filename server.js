@@ -236,7 +236,7 @@ function serveStatic(req, res) {
   });
 }
 
-const server = http.createServer(async (req, res) => {
+const handler = async (req, res) => {
   if (req.method === "GET" && req.url === "/api/status") {
     send(res, 200, JSON.stringify({
       liveRuntimeEnabled: Boolean(BTL_API_KEY),
@@ -284,4 +284,4 @@ if (require.main === module) {
   startServer();
 }
 
-module.exports = { server, startServer };
+module.exports = handler;
