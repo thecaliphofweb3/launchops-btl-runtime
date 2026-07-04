@@ -1,0 +1,16 @@
+{
+  "name": "btl-launchops",
+  "version": "1.0.0",
+  "description": "LaunchOps: a BTL runtime-powered command center for hackathon teams.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "btl-runtime",
+    "hackathon",
+    "llm-gateway",
+    "openai-compatible"
+  ],
+  "license": "MIT"
+}

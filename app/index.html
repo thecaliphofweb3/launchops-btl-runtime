@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LaunchOps is a BTL runtime-powered command center that turns rough hackathon ideas into demo-ready launch plans.">
+    <title>LaunchOps | BTL Runtime Project</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#workspace" aria-label="LaunchOps home">
+          <span class="mark">LO</span>
+          <span>
+            <strong>LaunchOps</strong>
+            <small>BTL runtime workspace</small>
+          </span>
+        </a>
+        <nav aria-label="Workspace navigation">
+          <a href="#workspace">Workspace</a>
+          <a href="#output">Output</a>
+          <a href="#proof">Proof</a>
+        </nav>
+        <div class="runtime-pill" id="runtime-status">Checking runtime...</div>
+      </header>
+
+      <main>
+        <section class="hero" id="workspace">
+          <div class="hero-copy">
+            <p class="eyebrow">Runtime-powered launch intelligence</p>
+            <h1>Shape a rough AI idea into a polished hackathon submission.</h1>
+            <p class="lede">
+              A focused command center for scope, demo flow, README copy, risk repair, and visible BTL runtime proof.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-link" href="#brief-form">Start brief</a>
+              <button class="secondary-link" id="demo-fill" type="button">Load sample</button>
+            </div>
+          </div>
+
+          <aside class="runtime-stage" aria-label="BTL runtime workflow">
+            <div class="stage-grid"></div>
+            <div class="core-node">
+              <span>BTL</span>
+              <small>/v1/chat/completions</small>
+            </div>
+            <span class="orbit-node n1">Brief</span>
+            <span class="orbit-node n2">Scope</span>
+            <span class="orbit-node n3">Demo</span>
+            <span class="orbit-node n4">Risks</span>
+            <span class="orbit-node n5">README</span>
+            <div class="trace t1"></div>
+            <div class="trace t2"></div>
+            <div class="trace t3"></div>
+          </aside>
+        </section>
+
+        <section class="workspace">
+          <aside class="glass-card brief-card">
+            <div class="panel-topline">
+              <div>
+                <p class="eyebrow">Project brief</p>
+                <h2>Raw signal</h2>
+              </div>
+              <div class="score-chip">
+                <strong id="brief-score">0%</strong>
+                <span>ready</span>
+              </div>
+            </div>
+
+            <div class="progress-track" aria-hidden="true">
+              <span id="brief-progress"></span>
+            </div>
+
+            <div class="preset-row" aria-label="Sample project presets">
+              <button type="button" data-preset="research">Research</button>
+              <button type="button" data-preset="ops">Ops</button>
+              <button type="button" data-preset="creator">Creator</button>
+            </div>
+
+            <form id="brief-form">
+              <label>
+                Project name
+                <input name="projectName" value="Signal Desk" required>
+              </label>
+              <label>
+                Target user
+                <input name="audience" value="solo founders and tiny hackathon teams" required>
+              </label>
+              <label>
+                User problem
+                <textarea name="problem" rows="4" required>Builders lose hours turning a promising AI idea into a demo-ready product, README, and pitch.</textarea>
+              </label>
+              <label>
+                BTL runtime use
+                <textarea name="runtimeUse" rows="4" required>The app sends the project brief to the BTL runtime through /v1/chat/completions and receives a structured launch plan, demo script, README bullets, risks, and task board.</textarea>
+              </label>
+              <label>
+                Messy notes
+                <textarea name="notes" rows="7">Need something impressive but practical. Should prove runtime use. Judges need to see the endpoint, why gateway matters, and a clean demo in under two minutes. It should work without exposing keys in the browser.</textarea>
+              </label>
+              <label>
+                Runtime model/route
+                <input name="model" list="model-options" value="deepseek-chat" required>
+                <datalist id="model-options">
+                  <option value="deepseek-chat"></option>
+                  <option value="deepseek-reasoner"></option>
+                  <option value="btl-2"></option>
+                  <option value="gpt-4o-mini"></option>
+                </datalist>
+              </label>
+              <label>
+                Output tone
+                <select name="tone">
+                  <option>confident, practical, and demo-ready</option>
+                  <option>technical and precise</option>
+                  <option>founder-friendly and punchy</option>
+                  <option>research-oriented and careful</option>
+                </select>
+              </label>
+              <button class="generate-button" type="submit">
+                <span>Generate launch plan</span>
+                <i aria-hidden="true"></i>
+              </button>
+            </form>
+          </aside>
+
+          <section class="output-area" id="output" aria-live="polite">
+            <div class="glass-card command-bar">
+              <div>
+                <p class="eyebrow">Launch plan</p>
+                <h2 id="result-title">Ready for a brief.</h2>
+              </div>
+              <div class="command-actions">
+                <button class="icon-button" id="copy-current" type="button" title="Copy active section" aria-label="Copy active section">Copy section</button>
+                <button class="icon-button" id="copy-all" type="button" title="Copy full plan" aria-label="Copy full plan">Copy all</button>
+              </div>
+            </div>
+
+            <div class="overview-grid">
+              <article class="metric-card">
+                <span>Mode</span>
+                <strong id="mode-metric">Waiting</strong>
+              </article>
+              <article class="metric-card">
+                <span>Artifacts</span>
+                <strong id="artifact-metric">0</strong>
+              </article>
+              <article class="metric-card">
+                <span>Endpoint</span>
+                <strong id="endpoint-metric">/v1</strong>
+              </article>
+            </div>
+
+            <div class="glass-card empty-state" id="empty-state">
+              <strong>No plan generated yet.</strong>
+              <span>Load a sample or use your own idea, then generate the launch plan.</span>
+            </div>
+
+            <div class="result-shell hidden" id="result-stack">
+              <div class="tabs" role="tablist" aria-label="Generated plan sections">
+                <button class="active" type="button" role="tab" data-tab="positioning">Positioning</button>
+                <button type="button" role="tab" data-tab="scope">Scope</button>
+                <button type="button" role="tab" data-tab="demo">Demo</button>
+                <button type="button" role="tab" data-tab="risks">Risks</button>
+                <button type="button" role="tab" data-tab="board">Board</button>
+                <button type="button" role="tab" data-tab="readme">README</button>
+              </div>
+
+              <article class="glass-card result-panel active" data-panel="positioning">
+                <span class="panel-number">01</span>
+                <h3>Positioning</h3>
+                <p id="positioning"></p>
+                <div class="judge-hook">
+                  <span>Judge hook</span>
+                  <strong id="judge-hook"></strong>
+                </div>
+              </article>
+
+              <article class="glass-card result-panel" data-panel="scope">
+                <span class="panel-number">02</span>
+                <h3>MVP scope</h3>
+                <ul id="mvp-scope"></ul>
+              </article>
+
+              <article class="glass-card result-panel" data-panel="demo">
+                <span class="panel-number">03</span>
+                <h3>2-minute demo</h3>
+                <ol id="demo-script"></ol>
+              </article>
+
+              <article class="glass-card result-panel" data-panel="risks">
+                <span class="panel-number">04</span>
+                <h3>Risk repair</h3>
+                <div class="risk-list" id="risk-list"></div>
+              </article>
+
+              <article class="glass-card result-panel" data-panel="board">
+                <span class="panel-number">05</span>
+                <h3>Task board</h3>
+                <div class="task-board" id="task-board"></div>
+              </article>
+
+              <article class="glass-card result-panel" data-panel="readme">
+                <span class="panel-number">06</span>
+                <h3>README bullets</h3>
+                <ul id="readme-bullets"></ul>
+              </article>
+            </div>
+
+            <article class="glass-card proof-panel" id="proof">
+              <div>
+                <p class="eyebrow">Runtime proof</p>
+                <h2>Gateway trace</h2>
+              </div>
+              <code id="runtime-meta">/v1/chat/completions</code>
+              <ul id="runtime-proof"></ul>
+            </article>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

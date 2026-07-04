@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="BTL Runtime Hackathon: a 48-hour online global hackathon for builders shipping with the Bad Theory Labs OpenAI-compatible runtime.">
+    <title>BTL Runtime Hackathon</title>
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="BTL Runtime Hackathon home">
+        <span class="brand-mark">BTL</span>
+        <span>Runtime Hackathon</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#runtime">Runtime</a>
+        <a href="#prizes">Prizes</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#builder-kit">Builder kit</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="header-action" href="#register">Register</a>
+    </header>
+
+    <main id="top">
+      <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Online · Global · Jul 3-5, 2026</p>
+          <h1 id="hero-title">Build it on the BTL runtime.</h1>
+          <p class="hero-lede">
+            48 hours to ship anything powered by the BTL runtime, Bad Theory Labs' OpenAI-compatible LLM gateway. Free API credits for every entrant. $1,100+ in prizes.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#register">Register for free</a>
+            <a class="button secondary" href="#schedule">See schedule</a>
+          </div>
+          <dl class="event-facts" aria-label="Event facts">
+            <div>
+              <dt>Date</dt>
+              <dd>Jul 3-5, 2026</dd>
+            </div>
+            <div>
+              <dt>Where</dt>
+              <dd>Online worldwide</dd>
+            </div>
+            <div>
+              <dt>Entry</dt>
+              <dd>Free to join</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" aria-label="BTL runtime network visual">
+          <img src="assets/runtime-signal.png" alt="Abstract runtime gateway signal map">
+          <div class="countdown-panel" aria-live="polite">
+            <span class="panel-label">Hacking starts in</span>
+            <div class="countdown" id="countdown">
+              <span><strong id="days">--</strong><small>days</small></span>
+              <span><strong id="hours">--</strong><small>hrs</small></span>
+              <span><strong id="minutes">--</strong><small>min</small></span>
+              <span><strong id="seconds">--</strong><small>sec</small></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-strip" aria-label="Hackathon highlights">
+        <div><strong>$1,100</strong><span>Prize pool</span></div>
+        <div><strong>48h</strong><span>Hacking</span></div>
+        <div><strong>$0</strong><span>Entry</span></div>
+        <div><strong>Global</strong><span>Any timezone</span></div>
+      </section>
+
+      <section class="section runtime-section" id="runtime" aria-labelledby="runtime-title">
+        <div class="section-heading">
+          <p class="eyebrow">The one rule</p>
+          <h2 id="runtime-title">Every project calls the BTL runtime.</h2>
+          <p>
+            Build with OpenAI-compatible endpoints, bring any provider behind the gateway, and show the runtime call in your submission.
+          </p>
+        </div>
+        <div class="runtime-grid">
+          <article class="feature-card">
+            <span class="feature-icon">/v1</span>
+            <h3>OpenAI-compatible</h3>
+            <p>Use familiar Chat Completions or Responses-style calls, then swap providers behind the BTL gateway.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon">API</span>
+            <h3>Credits included</h3>
+            <p>Every registrant receives scoped runtime credentials and free credits for the weekend.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon">AI</span>
+            <h3>Build beyond chat</h3>
+            <p>Agents, retrieval, memory, embeddings, tool use, streaming, usage controls, and multi-provider routing all fit.</p>
+          </article>
+        </div>
+        <div class="code-band">
+          <div>
+            <h3>Starter call</h3>
+            <p>Drop in your event API key and point your client at the BTL runtime base URL.</p>
+          </div>
+          <pre><code>curl https://api.badtheorylabs.com/v1/chat/completions \
+  -H "Authorization: Bearer $BTL_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "btl-auto",
+    "messages": [
+      {"role": "user", "content": "Build me a launch plan"}
+    ]
+  }'</code></pre>
+        </div>
+      </section>
+
+      <section class="section prizes-section" id="prizes" aria-labelledby="prizes-title">
+        <div class="section-heading">
+          <p class="eyebrow">Prizes & perks</p>
+          <h2 id="prizes-title">Win cash, credits, beta access, and useful attention.</h2>
+        </div>
+        <div class="prize-board">
+          <article class="prize-card top">
+            <span>1st Place</span>
+            <strong>$500</strong>
+            <p>Cash · Runtime credits · BTL beta access · Mentorship</p>
+          </article>
+          <article class="prize-card">
+            <span>2nd Place</span>
+            <strong>$300</strong>
+            <p>Cash · Runtime credits · BTL beta access · Mentorship</p>
+          </article>
+          <article class="prize-card">
+            <span>3rd Place</span>
+            <strong>$200</strong>
+            <p>Cash · Runtime credits · Certificate · Mentorship</p>
+          </article>
+          <article class="prize-card spot">
+            <span>Spot Prize</span>
+            <strong>$100</strong>
+            <p>Best use of the BTL runtime · Judges' pick</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section schedule-section" id="schedule" aria-labelledby="schedule-title">
+        <div class="section-heading">
+          <p class="eyebrow">Timeline · all times UTC</p>
+          <h2 id="schedule-title">48 hours, fully online.</h2>
+        </div>
+        <div class="timeline">
+          <article><time>Jul 3 · 15:00</time><h3>Kickoff stream</h3><p>Rules, runtime walkthrough, API keys, and hacking begins.</p></article>
+          <article><time>Jul 3 · 16:00</time><h3>Team formation</h3><p>Find teammates in Discord, or fly solo. Mentor channels open.</p></article>
+          <article><time>Jul 4 · 15:00</time><h3>Midpoint office hours</h3><p>Drop-in help with runtime calls, debugging, and scope decisions.</p></article>
+          <article><time>Jul 4 · 19:00</time><h3>BTL research talk</h3><p>Live session for every participant.</p></article>
+          <article><time>Jul 5 · 15:00</time><h3>Submissions due</h3><p>Repo plus 2-minute demo video. Hard deadline.</p></article>
+          <article><time>Jul 5 · 17:00</time><h3>Demo day</h3><p>Finalists present live: 5-minute demo plus 3-minute Q&A.</p></article>
+          <article><time>Jul 5 · 20:00</time><h3>Winners announced</h3><p>Prizes awarded on stream. Payouts begin.</p></article>
+        </div>
+      </section>
+
+      <section class="section builder-section" id="builder-kit" aria-labelledby="builder-title">
+        <div class="section-heading">
+          <p class="eyebrow">Builder kit</p>
+          <h2 id="builder-title">Make the first hour count.</h2>
+          <p>Pick a track, generate a tight project angle, then use the checklist to ship something judges can understand quickly.</p>
+        </div>
+        <div class="builder-layout">
+          <div class="idea-panel">
+            <label for="track">Project track</label>
+            <select id="track">
+              <option value="agent">Agent workflow</option>
+              <option value="research">Research assistant</option>
+              <option value="memory">Retrieval and memory</option>
+              <option value="creative">Creative tool</option>
+              <option value="ops">Operations automation</option>
+            </select>
+            <button class="button primary" id="idea-button" type="button">Generate project angle</button>
+            <div class="idea-output" id="idea-output">
+              Choose a track to get a focused build idea.
+            </div>
+          </div>
+          <div class="checklist-panel">
+            <h3>Submission essentials</h3>
+            <label><input type="checkbox"> Runtime call is visible in code or logs</label>
+            <label><input type="checkbox"> Repo includes setup instructions</label>
+            <label><input type="checkbox"> Demo video is 2 minutes or less</label>
+            <label><input type="checkbox"> README explains the user problem</label>
+            <label><input type="checkbox"> Team lists every contributor</label>
+          </div>
+        </div>
+      </section>
+
+      <section class="section judging-section" aria-labelledby="judging-title">
+        <div class="section-heading">
+          <p class="eyebrow">Judging lens</p>
+          <h2 id="judging-title">What standout projects prove.</h2>
+        </div>
+        <div class="criteria-grid">
+          <article><strong>Runtime use</strong><p>Clear, meaningful use of BTL runtime features, not a token API call.</p></article>
+          <article><strong>Usefulness</strong><p>A real user can understand the problem and benefit within the demo window.</p></article>
+          <article><strong>Execution</strong><p>The core path works, feels intentional, and has sensible fallbacks.</p></article>
+          <article><strong>Originality</strong><p>The idea shows taste, domain insight, or a clever runtime pattern.</p></article>
+        </div>
+      </section>
+
+      <section class="section register-section" id="register" aria-labelledby="register-title">
+        <div class="register-copy">
+          <p class="eyebrow">Register now</p>
+          <h2 id="register-title">Claim your spot and runtime credits.</h2>
+          <p>Registration is free. Teams can form before kickoff or during the first hour in Discord.</p>
+          <a class="discord-link" href="https://discord.gg/QJBCcB7bF">Join the community</a>
+        </div>
+        <form class="registration-form" id="registration-form">
+          <label>
+            Name
+            <input name="name" autocomplete="name" required>
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required>
+          </label>
+          <label>
+            Team status
+            <select name="team">
+              <option>Solo for now</option>
+              <option>Looking for teammates</option>
+              <option>Joining with a team</option>
+            </select>
+          </label>
+          <label>
+            What might you build?
+            <textarea name="idea" rows="4" placeholder="A sentence is enough. You can change it later."></textarea>
+          </label>
+          <button class="button primary" type="submit">Register for free</button>
+          <p class="form-note" id="form-note">Your local preview stores this registration in this browser.</p>
+        </form>
+      </section>
+
+      <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Questions, answered.</h2>
+        </div>
+        <div class="faq-list">
+          <details open><summary>Is it free?</summary><p>Yes. Free to enter, open to anyone anywhere. No fees or tiers.</p></details>
+          <details><summary>Do I have to use the runtime?</summary><p>Yes. Every project must call the BTL runtime. Registrants receive a key and free credits.</p></details>
+          <details><summary>Do I need a team?</summary><p>No. Solo builders are welcome. Teams can include up to four people.</p></details>
+          <details><summary>Who owns the IP?</summary><p>You do. BTL makes no claim on anything you build.</p></details>
+          <details><summary>How are prizes paid?</summary><p>In USD by bank transfer, PayPal, or stablecoin, depending on what works for your country.</p></details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Bad Theory Labs · BTL Runtime Hackathon</span>
+      <div>
+        <a href="docs/runtime-quickstart.md">Runtime quickstart</a>
+        <a href="docs/submission-checklist.md">Submission checklist</a>
+        <a href="docs/judging-rubric.md">Judging rubric</a>
+      </div>
+    </footer>
+
+    <a class="mobile-cta" href="#register">Register free</a>
+    <script src="script.js"></script>
+  </body>
+</html>
