@@ -238,11 +238,7 @@ function serveStatic(req, res) {
 
 const server = http.createServer(async (req, res) => {
   if (req.method === "GET" && req.url === "/api/status") {
-    send(res, 200, JSON.stringify({
-      liveRuntimeEnabled: Boolean(BTL_API_KEY),
-      endpoint: BTL_CHAT_COMPLETIONS_URL,
-      model: BTL_MODEL
-    }));
+    send(res, 200, JSON.stringify(runtimeStatus()));
     return;
   }
 
@@ -250,14 +246,13 @@ const server = http.createServer(async (req, res) => {
     let input = {};
     try {
       input = await readBody(req);
-      const result = BTL_API_KEY ? await callBtlRuntime(input) : demoPlan(input);
+      const result = await createLaunchPlan(input);
       send(res, 200, JSON.stringify(result));
     } catch (error) {
-      const result = BTL_API_KEY ? runtimeFallback(input, error) : {
+      send(res, 500, JSON.stringify({
         error: error.message,
         fallback: demoPlan(input).content
-      };
-      send(res, BTL_API_KEY ? 200 : 500, JSON.stringify(result));
+      }));
     }
     return;
   }
@@ -284,4 +279,21 @@ if (require.main === module) {
   startServer();
 }
 
-module.exports = { server, startServer };
+function runtimeStatus() {
+  return {
+    liveRuntimeEnabled: Boolean(BTL_API_KEY),
+    endpoint: BTL_CHAT_COMPLETIONS_URL,
+    model: BTL_MODEL
+  };
+}
+
+async function createLaunchPlan(input) {
+  try {
+    return BTL_API_KEY ? await callBtlRuntime(input) : demoPlan(input);
+  } catch (error) {
+    if (BTL_API_KEY) return runtimeFallback(input, error);
+    throw error;
+  }
+}
+
+module.exports = { server, startServer, runtimeStatus, createLaunchPlan };

@@ -25,6 +25,22 @@ Open:
 http://localhost:4173
 ```
 
+## Deploy to Vercel
+
+LaunchOps is Vercel-ready. The frontend is served from `app/`, and the BTL calls run through serverless functions in `api/`.
+
+Set these environment variables in Vercel before deploying:
+
+```text
+BTL_API_KEY=your_btl_runtime_key_here
+BTL_BASE_URL=https://api.badtheorylabs.com/v1
+BTL_MODEL=deepseek-chat
+```
+
+Then deploy the GitHub repo to Vercel. The deployed link will work on mobile phones and other devices without your laptop being on.
+
+Do not put your BTL key in the frontend code or in GitHub. Keep it only as a Vercel environment variable.
+
 On Windows, open PowerShell in this folder first:
 
 ```text
